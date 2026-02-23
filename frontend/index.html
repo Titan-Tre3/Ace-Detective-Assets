@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="card control-card" aria-label="global controls">
+        <h1>Sorting Algorithms Visualizer</h1>
+        <p>Compare seven classic sorting algorithms with animated traces and benchmark metrics.</p>
+
+        <div class="control-grid">
+          <label>Algorithm
+            <select id="algorithmSelect"></select>
+          </label>
+          <label>Compare Mode Algorithms
+            <select id="compareSelect" multiple size="4"></select>
+          </label>
+          <label>Array Size <span id="arraySizeLabel"></span>
+            <input id="arraySize" type="range" min="5" max="90" value="30" />
+          </label>
+          <label>Value Range <span id="valueRangeLabel"></span>
+            <input id="valueRange" type="range" min="20" max="500" value="220" />
+          </label>
+          <label>Speed (ms/frame) <span id="speedLabel"></span>
+            <input id="speedRange" type="range" min="10" max="1000" value="140" />
+          </label>
+          <label>Custom Array (comma separated)
+            <input id="customArray" type="text" placeholder="10, 4, 7, 2" />
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button id="randomizeBtn">Randomize</button>
+          <button id="applyCustomBtn">Use Custom</button>
+          <button id="runBtn">Run</button>
+          <button id="playPauseBtn">Pause</button>
+          <button id="stepBtn">Step</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </section>
+
+      <section id="panels" class="panel-grid" aria-live="polite"></section>
+
+      <section class="card summary-card">
+        <h2>Run Summary</h2>
+        <table id="summaryTable">
+          <thead>
+            <tr><th>Algorithm</th><th>Time (ms)</th><th>Comparisons</th><th>Swaps</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <canvas id="benchmarkChart" width="900" height="280"></canvas>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
